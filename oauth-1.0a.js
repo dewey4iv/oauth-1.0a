@@ -66,7 +66,7 @@ OAuth.prototype.authorize = function(request, token, addtlData) {
         oauth_signature_method: this.signature_method,
         oauth_timestamp: this.getTimeStamp(),
         oauth_version: this.version,
-		...addtlData,
+        ...addtlData,
     };
 
     if(!token) {
