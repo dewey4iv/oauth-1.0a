@@ -59,13 +59,14 @@ function OAuth(opts) {
  * @param  {Object} key and secret token
  * @return {Object} OAuth Authorized data
  */
-OAuth.prototype.authorize = function(request, token) {
+OAuth.prototype.authorize = function(request, token, addtlData) {
     var oauth_data = {
         oauth_consumer_key: this.consumer.key,
         oauth_nonce: this.getNonce(),
         oauth_signature_method: this.signature_method,
         oauth_timestamp: this.getTimeStamp(),
-        oauth_version: this.version
+        oauth_version: this.version,
+		...addtlData,
     };
 
     if(!token) {
